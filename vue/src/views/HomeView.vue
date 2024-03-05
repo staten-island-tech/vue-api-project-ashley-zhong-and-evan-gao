@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import chart from '@/components/chart.vue'
+API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <chart />
   </main>
 </template>
