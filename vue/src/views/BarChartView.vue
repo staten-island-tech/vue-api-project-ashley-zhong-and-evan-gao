@@ -1,12 +1,12 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="bar-chart">
+    <h1>Bar Chart</h1>
   </div>
 </template>
 
 <style>
 @media (min-width: 1024px) {
-  .about {
+  .bar-chart {
     min-height: 100vh;
     display: flex;
     align-items: center;
