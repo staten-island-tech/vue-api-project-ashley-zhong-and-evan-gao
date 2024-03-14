@@ -10,12 +10,15 @@
 </template>
 <!-- <script src="path/to/chartjs/dist/chart.umd.js"></script> -->
 <script>
-// import { Bar } from 'vue-chartjs'
-// import Chart from 'charts.js/auto'
-// import { onMounted } from 'vue';
-// import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-// ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
-const ctx = document.getElementById('myChart');
+import { ref, onMounted } from 'vue';
+import { Line } from 'vue-chartjs';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
+import { settings } from '@/stores/settings';
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
+
+
+// const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
     type: 'bar',
