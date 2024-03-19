@@ -16,28 +16,6 @@ async function getPokemon() {
 onBeforeMount(() => {
   getPokemon()
 })
-
-export default {
-  data() {
-    return {
-      pokemons: []
-    }
-  },
-  mounted: function () {
-    this.fetchData()
-  },
-  methods: {
-    fetchData: async function () {
-      try {
-        const result = await fetch('https://pokeapi.co/api/v2/pokemon?limit=${this.id}')
-        const data = await result.json()
-        this.pokemons = data.results
-      } catch (error) {
-        console.log(error)
-      }
-    }
-  }
-}
 </script>
 
 <style lang="scss" scoped></style>

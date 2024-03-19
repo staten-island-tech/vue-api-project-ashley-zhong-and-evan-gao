@@ -1,10 +1,16 @@
 <template>
   <div class="pie-chart">Pie Chart</div>
+  <div>
+    <canvas id="pieChart"></canvas>
+  </div>
 </template>
 
-<script setup>
-import chart from '@/components/chart.vue'
-const url = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json'
+<script>
+import PieChart from '@/components/PieChart.vue'
+export default {
+  name: 'App',
+  components: { PieChart }
+}
 </script>
 
 <style lang="scss" scoped>
