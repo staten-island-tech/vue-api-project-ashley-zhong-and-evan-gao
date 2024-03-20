@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
     <p>Cause Count: {{ causeCount }}</p>
-    <button @click="causeCount++" :disabled="!deathData">Discover a Cause of Death</button>
+    <button @click="findCause" :disabled="!deathData">Discover a Cause of Death</button>
     <p v-if="!deathData">Loading...</p>
     <pre v-else>{{ deathData }}</pre>
     <MainCard></MainCard>
@@ -14,12 +14,16 @@ import { ref, watch } from 'vue'
 
 const causeCount = ref(1)
 const deathData = ref(null)
+let API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json'
 
+function findCause() {
+  causeCount++
+  API += `?limit=${causeCount}`
+}
 async function fetchData() {
   deathData.value = null
-  const res = await fetch(
-    `https://data.cityofnewyork.us/resource/jb7j-dtam.json?limit=${causeCount}`
-  ) //add cause count as id in json file
+  const res = await fetch(API) //add cause count as id in json file
+
   deathData.value = await res.json()
   console.log(deathData)
 }
