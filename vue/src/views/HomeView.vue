@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
-    <p>Cause Count: {{ causeCount }}</p>
-    <button @click="findCause" :disabled="!deathData">Discover a Cause of Death</button>
+    <p>Cause Count: {{ causeCount.Count }}</p>
+    <button @click="findCause" :disabled="!deathData">Discover Another Cause of Death</button>
     <p v-if="!deathData">Loading...</p>
     <pre v-else>{{ deathData }}</pre>
     <MainCard></MainCard>
@@ -11,24 +11,26 @@
 <script setup>
 import MainCard from '@/components/MainCard.vue'
 import { ref, watch } from 'vue'
+import { causeCount } from '@/stores/causeCount.js'
 
-const causeCount = ref(1)
 const deathData = ref(null)
-let API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json'
+const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?$limit=1'
 
 function findCause() {
-  causeCount++
-  API += `?limit=${causeCount}`
+  causeCount.Count++
+  const newAPI = API.replace('$limit=1', `$limit=${causeCount.Count}`)
+  fetchData(newAPI)
 }
-async function fetchData() {
+
+async function fetchData(link) {
   deathData.value = null
-  const res = await fetch(API) //add cause count as id in json file
+  const res = await fetch(link) //add cause count as id in json file
 
   deathData.value = await res.json()
   console.log(deathData)
 }
 
-fetchData()
+fetchData(API)
 
 watch(causeCount, fetchData)
 
