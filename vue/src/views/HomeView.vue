@@ -14,11 +14,11 @@ import { ref, watch } from 'vue'
 import { causeCount } from '@/stores/causeCount.js'
 
 const deathData = ref(null)
-const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?$limit=1'
+const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?$limit=0'
 
 function findCause() {
   causeCount.Count++
-  const newAPI = API.replace('$limit=1', `$limit=${causeCount.Count}`)
+  const newAPI = API.replace('$limit=0', `$limit=${causeCount.Count}`)
   fetchData(newAPI)
 }
 
