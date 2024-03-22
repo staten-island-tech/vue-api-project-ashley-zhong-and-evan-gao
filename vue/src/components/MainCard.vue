@@ -4,10 +4,6 @@
   </div>
 </template>
 
-<script setup>
-// const props = defineProps({
-//   cause: object
-// })
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>
