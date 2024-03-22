@@ -1,12 +1,12 @@
 <template>
   <div class = "card">
-    <h2> {{ cause.name }}</h2>
+    <!-- <h2> {{ deathData.leading_cause }}</h2> -->
   </div>
 </template>
 
 <script setup>
 const props = defineProps({
-  cause: object
+  // deathData: object
 })
 
 </script>
