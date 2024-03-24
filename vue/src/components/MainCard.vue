@@ -1,22 +1,22 @@
 <template>
-
-    <div id="card">
-      <h1> "hello"</h1>
-    </div>
+  <div id="card">
+    <h1>{{ deathData.leading_cause }}</h1>
+    <h2>{{ key }}</h2>
+  </div>
 </template>
 
 <script setup>
-import DeathsData from '@/views/DeathsData.vue';
+import { defineProps } from 'vue'
+const props = defineProps({
+  deathData: Object,
+  key: Number
+})
 
-// import { defineProps } from "vue";
-// const props = defineProps({
-//   deathData: object
-// })
-
+import DeathsInfo from '@/views/DeathsInfo.vue'
 </script>
 
 <style lang="scss" scoped>
-#card{
+#card {
   background-color: aqua;
-}; 
+}
 </style>
