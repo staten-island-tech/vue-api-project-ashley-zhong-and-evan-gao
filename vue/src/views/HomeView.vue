@@ -7,9 +7,9 @@
       Search Specific Causes
     </button>
 
-    <div>Finding Results for {{ searchedCause }}</div>
-    <p v-if="!deathData && !displayedCauseData">Loading...</p>
-    <pre v-else-if="displayedCauseData">{{ displayedCauseData }}</pre>
+    <div>Finding Results for: {{ searchedCause }}</div>
+    <p v-if="!deathData && !filteredDeathCauses">Loading...</p>
+    <pre v-else-if="filteredDeathCauses">{{ filteredDeathCauses }}</pre>
 
     <MainCard v-else :key="componentKey" :deathData="getFilteredData"></MainCard>
   </div>
@@ -17,11 +17,11 @@
 
 <script setup>
 import MainCard from '@/components/MainCard.vue'
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const deathData = ref(null)
 const searchedCause = ref('')
-const displayedCauseData = ref(null)
+const filteredDeathCauses = ref(null)
 const componentKey = ref(0)
 
 const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014'
@@ -49,13 +49,13 @@ function findDeath() {
     const matchingData = deathData.value.filter((item) =>
       item.leading_cause.toLowerCase().includes(searchedCause.value.toLowerCase())
     )
-    displayedCauseData.value = matchingData
+    filteredDeathCauses.value = matchingData
     componentKey.value += 1
   }
 }
 const getFilteredData = () => {
-  if (displayedCauseData.value) {
-    return displayedCauseData.value
+  if (filteredDeathCauses.value) {
+    return filteredDeathCauses.value
   } else {
     return []
   }
