@@ -1,8 +1,13 @@
 <template>
   <div class="home-page">
     <h3>Causes of Death in 2014</h3>
-    <p>Cause Count: {{ causeCount.Count }}</p>
-    <button @click="findCause" :disabled="!deathData">Discover Another Cause of Death</button>
+    <input type="text" v-model="searchQuery" placeholder="Search..." @input="handleInput" />
+
+    <button type="button" @click="findDeath" :disabled="!searchQuery">
+      Search Specific Causes
+    </button>
+
+    <div v-if="isLoading">Searching...</div>
     <p v-if="!deathData">Loading...</p>
     <pre v-else>{{ deathData }}</pre>
     <buttton>Search For Causes of Deaths</buttton>
@@ -12,18 +17,11 @@
 
 <script setup>
 import MainCard from '@/components/MainCard.vue'
-import { ref, watch, onMounted } from 'vue'
-import { causeCount } from '@/stores/causeCount.js'
+import { ref, onMounted } from 'vue'
 
 const deathData = ref(null)
 
-const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014&$limit=0'
-
-// function findCause() {
-//   causeCount.Count++
-//   const newAPI = API.replace('$limit=0', `$limit=${causeCount.Count}`)
-//   fetchData(newAPI)
-// }
+const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014'
 
 async function fetchData(link) {
   try {
@@ -39,13 +37,14 @@ async function fetchData(link) {
     console.log(error)
   }
 }
-onMounted(()=> {
+
+onMounted(() => {
   fetchData(API)
 })
 
-
-
-// watch(causeCount, fetchData)
+function findDeath() {
+  //match card with search
+}
 
 // call and create fetch data function here but have cards created in maincard.vue component
 </script>
