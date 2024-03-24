@@ -7,11 +7,11 @@
       Search Specific Causes
     </button>
 
-    <div>Finding Results for {{ displayedCauseData ? searchedCause : '...' }}</div>
+    <div>Finding Results for {{ searchedCause }}</div>
     <p v-if="!deathData && !displayedCauseData">Loading...</p>
     <pre v-else-if="displayedCauseData">{{ displayedCauseData }}</pre>
 
-    <MainCard v-else :key="componentKey" :deathData="filteredData"></MainCard>
+    <MainCard v-else :key="componentKey" :deathData="getFilteredData"></MainCard>
   </div>
 </template>
 
@@ -49,22 +49,17 @@ function findDeath() {
     const matchingData = deathData.value.filter((item) =>
       item.leading_cause.toLowerCase().includes(searchedCause.value.toLowerCase())
     )
-
     displayedCauseData.value = matchingData
-
     componentKey.value += 1
   }
 }
-
-const filteredData = computed(() => {
+const getFilteredData = () => {
   if (displayedCauseData.value) {
     return displayedCauseData.value
   } else {
     return []
   }
-})
-
-// call and create fetch data function here but have cards created in maincard.vue component
+}
 </script>
 
 <style lang="scss" scoped></style>
