@@ -39,9 +39,9 @@ async function fetchData(link) {
     console.log(error)
   }
 }
-// onMounted(()=> {
-//   fetchData(API)
-// })
+onMounted(()=> {
+  fetchData(API)
+})
 
 
 
