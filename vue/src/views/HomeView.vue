@@ -17,7 +17,7 @@
 
 <script setup>
 import MainCard from '@/components/MainCard.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 
 const deathData = ref(null)
 const searchedCause = ref('')
@@ -53,13 +53,13 @@ function findDeath() {
     componentKey.value += 1
   }
 }
-const getFilteredData = () => {
+const getFilteredData = computed(() => {
   if (filteredDeathCauses.value) {
     return filteredDeathCauses.value
   } else {
     return []
   }
-}
+})
 </script>
 
 <style lang="scss" scoped></style>
