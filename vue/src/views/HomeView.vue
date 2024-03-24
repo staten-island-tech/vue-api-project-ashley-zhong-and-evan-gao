@@ -10,17 +10,17 @@
 
 <script setup>
 import MainCard from '@/components/MainCard.vue'
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { causeCount } from '@/stores/causeCount.js'
 
 const deathData = ref(null)
 const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?$limit=0'
 
-function findCause() {
-  causeCount.Count++
-  const newAPI = API.replace('$limit=0', `$limit=${causeCount.Count}`)
-  fetchData(newAPI)
-}
+// function findCause() {
+//   causeCount.Count++
+//   const newAPI = API.replace('$limit=0', `$limit=${causeCount.Count}`)
+//   fetchData(newAPI)
+// }
 
 async function fetchData(link) {
   deathData.value = null
@@ -29,10 +29,13 @@ async function fetchData(link) {
   deathData.value = await res.json()
   console.log(deathData)
 }
+// onMounted(()=> {
+//   fetchData(API)
+// })
 
-fetchData(API)
+fetchData(API) // could delete
 
-watch(causeCount, fetchData)
+// watch(causeCount, fetchData)
 
 // call and create fetch data function here but have cards created in maincard.vue component
 </script>

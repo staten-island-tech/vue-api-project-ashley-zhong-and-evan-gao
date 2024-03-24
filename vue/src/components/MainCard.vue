@@ -1,17 +1,17 @@
 <template>
 
     <div id="card">
-      <h1>{{ DeathsData.leading_cause }}</h1>
+      <h1> "hello"</h1>
     </div>
 </template>
 
 <script setup>
 import DeathsData from '@/views/DeathsData.vue';
 
-import { defineProps } from "vue";
-const props = defineProps({
-  deathData: object
-})
+// import { defineProps } from "vue";
+// const props = defineProps({
+//   deathData: object
+// })
 
 </script>
 
