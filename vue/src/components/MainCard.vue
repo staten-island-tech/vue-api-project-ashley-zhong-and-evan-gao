@@ -1,22 +1,25 @@
 <template>
-  <div id="card">
-    <h1>{{ deathData.leading_cause }}</h1>
-    <h2>{{ key }}</h2>
-  </div>
+  <router-link :to ="causePath" id="card">
+    <h1>{{ cause }}</h1>
+  </router-link>
 </template>
 
 <script setup>
+import {computed} from 'vue'
 import { defineProps } from 'vue'
 const props = defineProps({
-  deathData: Object,
+  cause: Object,
   key: Number
 })
-
+const causePath = computed (()=>{
+  return `/deathData/${props.cause}`
+})
 import DeathsInfo from '@/views/DeathsInfo.vue'
 </script>
 
 <style lang="scss" scoped>
 #card {
   background-color: aqua;
+  margin-bottom: 2rem;
 }
 </style>
