@@ -13,6 +13,9 @@
                 }
             }
         },
+        mounted: async function () {
+            await this.getCause();
+        },
         methods:{
             getCause:
                 async function(){
@@ -22,9 +25,9 @@
                     this.cause = data
                 }
         },
-        created() {
-            this.getCause(); // call the method when the component is created
-        }
+        // created() {
+        //     this.getCause(); 
+        // }
     }
 </script>
 
