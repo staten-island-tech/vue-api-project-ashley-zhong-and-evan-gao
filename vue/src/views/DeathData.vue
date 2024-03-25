@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1> {{ cause }}</h1>
+        <h1> {{  }}</h1>
     </div>
 </template>
 
@@ -14,14 +14,16 @@
             }
         },
         methods:{
-            getCause:{
+            getCause:
                 async function(){
-                    let res= await fetch (`https://data.cityofnewyork.us/resource/jb7j-dtam.json?
-                    ${this.$route.params.id}`)
+                    let res= await fetch (`https://data.cityofnewyork.us/resource/jb7j-dtam.json?leading_cause=${this.$route.params.id}`)
                     let data = await res.json()
-                    this.cuase = data
+                    console.log(data)
+                    this.cause = data
                 }
-            }
+        },
+        created() {
+            this.getCause(); // call the method when the component is created
         }
     }
 </script>
