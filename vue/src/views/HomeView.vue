@@ -1,14 +1,7 @@
 <template>
   <div class="home-page">
     <h3>Causes of Death in 2014</h3>
-    <!-- <li v-for="cause in uniqueLeadingCauses" :key="cause">{{ cause }}</li> -->
-    <MainCard
-    v-for="cause in uniqueLeadingCauses" 
-    :key="cause"
-    :id = "index"
-    :cause = "cause"
-    />
-
+    <MainCard v-for="cause in uniqueLeadingCauses" :key="cause" :id="index" :cause="cause" />
 
     <!-- <input type="text" v-model="searchedCause" placeholder="Search..." @keyup.enter="findDeath" />
     <button type="button" @click="findDeath" :disabled="!searchedCause">
@@ -36,27 +29,27 @@ const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014'
 
 async function fetchData(link) {
   try {
-  deathData.value = null;
-  const res = await fetch(link);
-  if (res.status >= 200 && res.status < 300) {
-    deathData.value = await res.json();
-    console.log(deathData.value);
-  } else {
-    throw new Error(res.statusText);
+    deathData.value = null
+    const res = await fetch(link)
+    if (res.status >= 200 && res.status < 300) {
+      deathData.value = await res.json()
+      console.log(deathData.value)
+    } else {
+      throw new Error(res.statusText)
+    }
+  } catch (error) {
+    console.log(error)
   }
-} catch (error) {
-  console.log(error);
-}
 }
 // console.log(deathData)
 
 const uniqueLeadingCauses = computed(() => {
   if (deathData.value) {
-    return [...new Set(deathData.value.map(item => item.leading_cause))];
+    return [...new Set(deathData.value.map((item) => item.leading_cause))]
   }
-  return ["didn't work properly"];
-});
-console.log(uniqueLeadingCauses.value); 
+  return ["didn't work properly"]
+})
+console.log(uniqueLeadingCauses.value)
 
 onMounted(() => {
   fetchData(API)
