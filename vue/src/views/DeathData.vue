@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ cause.leading_cause }}</h1>
+    <h1>{{ cause.name }}</h1>
   </div>
 </template>
 

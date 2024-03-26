@@ -1,18 +1,17 @@
 <template>
   <div class="home-page">
     <h3>Causes of Death in 2014</h3>
-    <MainCard v-for="cause in uniqueLeadingCauses" :key="cause" :id="index" :cause="cause" />
-
-    <!-- <input type="text" v-model="searchedCause" placeholder="Search..." @keyup.enter="findDeath" />
+    <input type="text" v-model="getFilteredData" placeholder="Search..." @keyup.enter="findDeath" />
     <button type="button" @click="findDeath" :disabled="!searchedCause">
       Search Specific Causes
     </button>
+    <div>Finding Results for: {{ getFilteredData }}</div>
+    <MainCard v-for="cause in uniqueLeadingCauses" :key="cause" :id="index" :cause="cause" />
 
-    <div>Finding Results for: {{ searchedCause }}</div>
     <p v-if="!deathData && !filteredDeathCauses">Loading...</p>
     <pre v-else-if="filteredDeathCauses">{{ filteredDeathCauses }}</pre>
 
-    <MainCard v-else :key="componentKey" :deathData="getFilteredData"></MainCard> -->
+    <!-- <MainCard v-else :key="componentKey" :deathData="getFilteredData"></MainCard> -->
   </div>
 </template>
 
@@ -56,23 +55,22 @@ onMounted(() => {
   fetchData(API)
 })
 
-
-// function findDeath() {
-//   if (searchedCause.value) {
-//     const matchingData = deathData.value.filter((item) =>
-//       item.leading_cause.toLowerCase().includes(searchedCause.value.toLowerCase())
-//     )
-//     displayedCauseData.value = matchingData
-//     componentKey.value += 1
-//   }
-// }
-// const getFilteredData = () => {
-//   if (displayedCauseData.value) {
-//     return displayedCauseData.value
-//   } else {
-//     return []
-//   }
-// }
+function findDeath() {
+  if (searchedCause.value) {
+    const matchingData = deathData.value.filter((item) =>
+      item.leading_cause.toLowerCase().includes(searchedCause.value.toLowerCase())
+    )
+    displayedCauseData.value = matchingData
+    componentKey.value += 1
+  }
+}
+const getFilteredData = computed(() => {
+  if (uniqueLeadingCauses.value) {
+    return uniqueLeadingCauses.value
+  } else {
+    return []
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>
