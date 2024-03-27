@@ -5,6 +5,7 @@
 </template>
 
 <script setup>
+// router links "percent of people from diff race inside indiv card"
 import { computed } from 'vue'
 import { defineProps } from 'vue'
 const props = defineProps({
