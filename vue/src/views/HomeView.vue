@@ -1,11 +1,16 @@
 <template>
   <div class="home-page">
     <h3>Causes of Death in 2014</h3>
-    <input type="text" v-model="getFilteredData" placeholder="Search..." @keyup.enter="findDeath" />
+    <input
+      type="text"
+      v-model="filteredDeathCauses"
+      placeholder="Search..."
+      @keyup.enter="findDeath"
+    />
     <button type="button" @click="findDeath" :disabled="!searchedCause">
       Search Specific Causes
     </button>
-    <div>Finding Results for: {{ getFilteredData }}</div>
+    <div>Finding Results for: {{ filteredDeathCauses }}</div>
     <MainCard v-for="cause in uniqueLeadingCauses" :key="cause" :id="index" :cause="cause" />
 
     <p v-if="!deathData && !filteredDeathCauses">Loading...</p>
@@ -24,6 +29,7 @@ const deathData = ref(null)
 // const searchedCause = ref('')
 // const displayedCauseData = ref(null)
 // const componentKey = ref(0)
+// script setup makes composition api and script makes options https://www.youtube.com/watch?v=qRPSOXA1Fhw
 
 const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014'
 
