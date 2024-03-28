@@ -11,8 +11,8 @@ import { RouterLink, RouterView } from 'vue-router'
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/barchart">Bar Chart</RouterLink>
-        <RouterLink to="/piechart">Pie Chart</RouterLink>
+        <RouterLink to="/byRaceBarChart">Leading Cause of Death By Race</RouterLink>
+        <RouterLink to="/byGenderPieChart">Leading Cause of Death By Gender</RouterLink>
       </nav>
     </div>
   </header>
