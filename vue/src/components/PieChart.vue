@@ -1,5 +1,5 @@
 <template>
-  <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+    <!-- <pie-chart v-if="chartData" :chart-data="chartData" /> -->
   <div> 
     <h1>
       hello
@@ -8,19 +8,25 @@
   </div>
 </template>
 
-<script setup>
-// import { Bar } from 'vue-chartjs'
-// import {
-//   Chart as ChartJS,
-//   Title,
-//   Tooltip,
-//   Legend,
-//   BarElement,
-//   CategoryScale,
-//   LinearScale
-// } from 'chart.js'
+<script >
+// import { Pie } from 'vue-chartjs';
 
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+// export default {
+//   name: 'PieChart',
+//   extends: Pie,
+//   props: {
+//     chartData: {
+//       type: Object,
+//       required: true,
+//     },
+//   },
+//   mounted() {
+//     this.renderChart(this.chartData, {
+//       responsive: true,
+//       maintainAspectRatio: false,
+//     });
+//   },
+// };
 </script>
 
 <style lang="scss" scoped>
