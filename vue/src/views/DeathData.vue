@@ -1,6 +1,6 @@
 <template>
     <div>    
-        <!-- <PieChart v-if="chartData.labels.length > 0" :chart-data="chartData" /> -->
+        <!-- <pie-chart v-if="chartData.datasets.length > 0" :chart-data="chartData" /> -->
         <h1>hello</h1>
     </div>
 </template>
@@ -19,7 +19,7 @@ export default {
 
     data() {
         return {
-            cause: [],
+            cause: {},
         }
     },
     computed: {
@@ -28,6 +28,7 @@ export default {
         men: 0,
         women: 0,
       };
+      
             this.cause.forEach((item) => {
         if (item.sex === 'M') {
             genderData.men += parseInt(item.deaths);
@@ -35,7 +36,6 @@ export default {
             genderData.women += parseInt(item.deaths);
         }
       });
-      console.log(this.chartData);
       return {
         datasets: [
         {
@@ -49,6 +49,7 @@ export default {
         }
 
     },
+    
     mounted: async function () {
 
         await this.getCause();

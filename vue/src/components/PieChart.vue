@@ -1,5 +1,5 @@
 <template>
-  <pie-chart :chart-data="chartData" />
+    <pie-chart :chart-data="chartData" />
 </template>
 
 <script >
@@ -19,6 +19,7 @@ export default {
       responsive: true,
       maintainAspectRatio: false,
     });
+    console.log(chartData)
   },
 };
 </script>
