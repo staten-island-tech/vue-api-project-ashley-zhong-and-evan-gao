@@ -1,11 +1,12 @@
 <template>
   <div class="home-page">
-    <h3>Causes of Death in 2014</h3>
+    <h1>Causes of Death in 2014</h1>
+    <h3>Find Info on the Statistics of Causes of Deaths based on Race and Gender</h3>
     <input type="text" v-model="searchedCause" placeholder="Search..." @keyup.enter="findDeath" />
     <div>Finding Results for: {{ searchedCause }}</div>
     <MainCard
-      v-for="cause in filteredUniqueLeadingCauses"
-      :key="cause"
+      v-for="(cause, index) in filteredUniqueLeadingCauses"
+      :key="index"
       :id="index"
       :cause="cause"
     />
@@ -39,9 +40,18 @@ async function fetchData(link) {
 }
 
 const uniqueLeadingCauses = computed(() => {
-  // takes all the items with same leading_causes and eliminates any extras
+  // takes all the items with same leading_causes
   if (deathData.value) {
-    return [...new Set(deathData.value.map((item) => item.leading_cause))]
+    const leadingCauseMap = new Map()
+    deathData.value.forEach((item) => {
+      if (leadingCauseMap.has(item.leading_cause)) {
+        leadingCauseMap.set(item.leading_cause, leadingCauseMap.get(item.leading_cause) + 1)
+      } else {
+        leadingCauseMap.set(item.leading_cause, 1)
+      }
+    })
+    const uniqueLeadingCausesArray = Array.from(leadingCauseMap.keys())
+    return uniqueLeadingCausesArray
   }
   return ["didn't work properly"]
 })

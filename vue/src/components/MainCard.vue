@@ -1,6 +1,7 @@
 <template>
   <router-link :to="causePath" id="card">
     <h1>{{ cause }}</h1>
+    <div>{{ cause.key }}</div>
   </router-link>
 </template>
 
@@ -9,8 +10,8 @@
 import { computed } from 'vue'
 import { defineProps } from 'vue'
 const props = defineProps({
-  cause: Object,
-  key: Number
+  key: Number,
+  cause: String
 })
 const causePath = computed(() => {
   return `/DeathData/${props.cause}`
