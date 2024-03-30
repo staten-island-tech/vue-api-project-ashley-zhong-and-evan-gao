@@ -1,7 +1,7 @@
 <template>
     <div>    
-        <PieChart v-if="chartData.labels.length > 0" :chart-data="chartData" />
-
+        <!-- <PieChart v-if="chartData.labels.length > 0" :chart-data="chartData" /> -->
+        <h1>hello</h1>
     </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
 
     data() {
         return {
-            cause: {},
+            cause: [],
         }
     },
     computed: {
@@ -35,14 +35,15 @@ export default {
             genderData.women += parseInt(item.deaths);
         }
       });
+      console.log(this.chartData);
       return {
-        labels: ['Men', 'Women'],
         datasets: [
-          {
-            data: [genderData.men, genderData.women],
-            backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)'],
-          },
-        ],
+        {
+          label: 'Gender',
+          data: [genderData.men, genderData.women],
+          backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)'],
+        },
+      ],
       };
 
         }
