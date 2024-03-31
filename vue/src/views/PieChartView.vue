@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import PieChart from '@/components/PieChart.vue'
-export default {
-  name: 'App',
-  components: { PieChart }
-}
+// import PieChart from '@/components/PieChart.vue'
+// export default {
+//   name: 'App',
+//   components: { PieChart }
+// }
 </script>
 
 <style scoped>
