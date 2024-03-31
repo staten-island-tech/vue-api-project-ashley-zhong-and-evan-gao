@@ -1,8 +1,8 @@
 <template>
     <div>
-        <!-- <PieChart v-if="loaded"
+        <PieChart v-if="loaded"
             :menProp="men"
-            :womenProp="women" /> -->
+            :womenProp="women" />
         <h1>hello</h1>
     </div>
 </template>
