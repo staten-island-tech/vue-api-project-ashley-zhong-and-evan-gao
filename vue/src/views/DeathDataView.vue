@@ -1,13 +1,11 @@
 <template>
   <div>
-    <PieChart v-if="loaded" :menProp="men" :womenProp="women" />
-    <h1>{{ men }}</h1>
-    <h1>{{ women }}</h1>
+    <!-- <PieChart v-if="loaded" :menProp="men" :womenProp="women" /> -->
   </div>
 </template>
 
 <script>
-import PieChart from '@/components/PieChart.vue'
+import PieChart from '@/components/PieChartCard.vue'
 import { Pie } from 'vue-chartjs'
 import {
   Chart as ChartJS,
@@ -52,12 +50,15 @@ export default {
         console.log(this.data)
         this.data.forEach((item) => {
           if (item.sex === 'M') {
-            this.men += parseInt(item.deaths)
+            if (item.deaths != '.') {
+              this.men += parseInt(item.deaths)
+            }
           } else if (item.sex === 'F') {
-            this.women += parseInt(item.deaths)
+            if (item.deaths != '.') {
+              this.women += parseInt(item.deaths)
+            }
           }
         })
-        this.loaded = false
       } catch (error) {
         console.log(error)
       }
@@ -66,7 +67,6 @@ export default {
 }
 
 // https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014&leading_cause=Accidents%20Except%20Drug%20Posioning%20(V01-X39,%20X43,%20X45-X59,%20Y85-Y86)
-// https://www.youtube.com/watch?v=qRPSOXA1Fhw&ab_channel=TechCheck
 </script>
 
 <style lang="scss" scoped></style>
