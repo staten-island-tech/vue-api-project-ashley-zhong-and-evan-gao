@@ -10,16 +10,16 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/barchart',
-      name: 'Bar Chart',
+      path: '/byRaceBarChart',
+      name: 'Leading Cause of Death by Race',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/BarChartView.vue')
     },
     {
-      path: '/piechart',
-      name: 'Pie Chart',
+      path: '/byGenderPieChart',
+      name: 'Leading Cause of Death by Gender',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -31,7 +31,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/DeathData.vue')
+      component: () => import('../views/DeathDataView.vue')
     }
   ]
 })

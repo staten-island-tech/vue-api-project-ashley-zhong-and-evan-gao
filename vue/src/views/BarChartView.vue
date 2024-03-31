@@ -1,40 +1,56 @@
 <template>
-    <!-- <pie-chart v-if="chartData" :chart-data="chartData" /> -->
   <div>
-    <h1>
-      hello
-      dfasdfadsf
-    </h1>
+    <h1>Leading Cause of Death by Race</h1>
+    <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
   </div>
- </template>
- 
- 
- <script >
-import { Pie } from 'vue-chartjs';
+</template>
 
-// export default {
-//   name: 'PieChart',
-//   extends: Pie,
-//   props: {
-//     chartData: {
-//       type: Object,
-//       required: true,
-//     },
-//   },
-//   mounted() {
-//     this.renderChart(this.chartData, {
-//       responsive: true,
-//       maintainAspectRatio: false,
-//     });
-//   },
-// };
+<script>
+import { Bar } from 'vue-chartjs'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+} from 'chart.js'
+
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+
+export default {
+  name: 'BarChart',
+  components: { Bar },
+  data() {
+    return {
+      chartData: {
+        labels: ['January', 'February', 'March'],
+        datasets: [{ data: [40, 20, 12] }]
+      },
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </script>
 
- </script>
- 
- 
- <style lang="scss" scoped>
- h1{
+<style scoped>
+h1 {
   font-size: large;
- }
- </style>
+}
+</style>

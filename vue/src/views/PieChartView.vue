@@ -6,14 +6,14 @@
 </template>
 
 <script>
-import PieChart from '@/components/PieChart.vue'
-export default {
-  name: 'App',
-  components: { PieChart }
-}
+// import PieChart from '@/components/PieChart.vue'
+// export default {
+//   name: 'App',
+//   components: { PieChart }
+// }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 @media (min-width: 1024px) {
   .pie-chart {
     min-height: 100vh;
