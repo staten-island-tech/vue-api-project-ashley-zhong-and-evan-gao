@@ -10,29 +10,29 @@ import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, Li
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
-export default {
-  name: 'PieChart',
-  extends: Pie,
-  props: {
-    menProp: Array,
-    womenProp: Array, 
+// export default {
+//   name: 'PieChart',
+//   extends: Pie,
+//   props: {
+//     menProp: Array,
+//     womenProp: Array, 
 
-    // chartData: {
-    //   type: Array,
-    //   required: true
-    // },
-    // chartId: {
-    //   type: String,
-    //   default: 'pie-chart'
-    // }
-  },
-  // mounted() {
-  //   this.renderChart(this.chartData, {
-  //     responsive: true,
-  //     maintainAspectRatio: false
-  //   });
-  // }
-}
+//     // chartData: {
+//     //   type: Array,
+//     //   required: true
+//     // },
+//     // chartId: {
+//     //   type: String,
+//     //   default: 'pie-chart'
+//     // }
+//   },
+//   // mounted() {
+//   //   this.renderChart(this.chartData, {
+//   //     responsive: true,
+//   //     maintainAspectRatio: false
+//   //   });
+//   // }
+// }
 
 </script>
 
