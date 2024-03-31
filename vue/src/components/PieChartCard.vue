@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pie
+    <Pie
       :chart-data="
         (chartData = {
           labels: ['Men', 'Women'],
@@ -38,10 +38,6 @@ export default {
   name: 'PieChartCard',
   extends: Pie,
   props: {
-    data: {
-      type: Object,
-      required: true
-    },
     menProp: {
       type: Number,
       required: true
@@ -69,7 +65,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 h1 {
   font-size: large;
 }

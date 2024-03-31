@@ -1,16 +1,12 @@
 <template>
-    <!-- <pie-chart v-if="chartData" :chart-data="chartData" /> -->
+  <!-- <pie-chart v-if="chartData" :chart-data="chartData" /> -->
   <div>
-    <h1>
-      hello
-      dfasdfadsf
-    </h1>
+    <h1>hello dfasdfadsf</h1>
   </div>
- </template>
- 
- 
- <script >
-import { Pie } from 'vue-chartjs';
+</template>
+
+<script>
+import { Pie } from 'vue-chartjs'
 
 // export default {
 //   name: 'PieChart',
@@ -30,11 +26,8 @@ import { Pie } from 'vue-chartjs';
 // };
 </script>
 
- </script>
- 
- 
- <style lang="scss" scoped>
- h1{
+<style scoped>
+h1 {
   font-size: large;
- }
- </style>
+}
+</style>

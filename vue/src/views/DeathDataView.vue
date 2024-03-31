@@ -70,4 +70,4 @@ export default {
 // https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014&leading_cause=Accidents%20Except%20Drug%20Posioning%20(V01-X39,%20X43,%20X45-X59,%20Y85-Y86)
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

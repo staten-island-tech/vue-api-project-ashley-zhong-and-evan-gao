@@ -21,7 +21,7 @@ const causePath = computed(() => {
 // descriptionArr.forEach((descrip) =>
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 #card {
   background-color: aqua;
   margin-bottom: 2rem;

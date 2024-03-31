@@ -13,7 +13,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 @media (min-width: 1024px) {
   .pie-chart {
     min-height: 100vh;
