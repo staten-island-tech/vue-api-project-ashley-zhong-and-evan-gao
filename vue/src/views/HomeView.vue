@@ -1,18 +1,15 @@
 <template>
   <div class="home-page">
-    <h3>Causes of Death in 2014</h3>
-    <MainCard v-for="cause in uniqueLeadingCauses" :key="cause" :id="index" :cause="cause" />
-
-    <!-- <input type="text" v-model="searchedCause" placeholder="Search..." @keyup.enter="findDeath" />
-    <button type="button" @click="findDeath" :disabled="!searchedCause">
-      Search Specific Causes
-    </button>
-
+    <h1>Causes of Death in 2014</h1>
+    <h3>Find Info on the Statistics of Causes of Deaths based on Race and Gender</h3>
+    <input type="text" v-model="searchedCause" placeholder="Search..." @keyup.enter="findDeath" />
     <div>Finding Results for: {{ searchedCause }}</div>
-    <p v-if="!deathData && !filteredDeathCauses">Loading...</p>
-    <pre v-else-if="filteredDeathCauses">{{ filteredDeathCauses }}</pre>
-
-    <MainCard v-else :key="componentKey" :deathData="getFilteredData"></MainCard> -->
+    <MainCard
+      v-for="(cause, index) in filteredUniqueLeadingCauses"
+      :key="index"
+      :id="index"
+      :cause="cause"
+    />
   </div>
 </template>
 
@@ -21,10 +18,9 @@ import MainCard from '@/components/MainCard.vue'
 import { ref, onMounted, computed } from 'vue'
 
 const deathData = ref(null)
+const searchedCause = ref('')
 
-// const searchedCause = ref('')
-// const displayedCauseData = ref(null)
-// const componentKey = ref(0)
+// script setup makes composition api and script makes options https://www.youtube.com/watch?v=qRPSOXA1Fhw
 
 const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014'
 
@@ -42,37 +38,36 @@ async function fetchData(link) {
     console.log(error)
   }
 }
-// console.log(deathData)
 
 const uniqueLeadingCauses = computed(() => {
+  // takes all the items with same leading_causes
   if (deathData.value) {
-    return [...new Set(deathData.value.map((item) => item.leading_cause))]
+    const leadingCauseMap = new Map()
+    deathData.value.forEach((item) => {
+      if (leadingCauseMap.has(item.leading_cause)) {
+        leadingCauseMap.set(item.leading_cause, leadingCauseMap.get(item.leading_cause) + 1)
+      } else {
+        leadingCauseMap.set(item.leading_cause, 1)
+      }
+    })
+    const uniqueLeadingCausesArray = Array.from(leadingCauseMap.keys())
+    return uniqueLeadingCausesArray
   }
   return ["didn't work properly"]
 })
-console.log(uniqueLeadingCauses.value)
+
+const filteredUniqueLeadingCauses = computed(() => {
+  if (searchedCause.value) {
+    return uniqueLeadingCauses.value.filter((cause) =>
+      cause.toLowerCase().includes(searchedCause.value.toLowerCase())
+    )
+  }
+  return uniqueLeadingCauses.value
+})
 
 onMounted(() => {
   fetchData(API)
 })
-
-
-// function findDeath() {
-//   if (searchedCause.value) {
-//     const matchingData = deathData.value.filter((item) =>
-//       item.leading_cause.toLowerCase().includes(searchedCause.value.toLowerCase())
-//     )
-//     displayedCauseData.value = matchingData
-//     componentKey.value += 1
-//   }
-// }
-// const getFilteredData = () => {
-//   if (displayedCauseData.value) {
-//     return displayedCauseData.value
-//   } else {
-//     return []
-//   }
-// }
 </script>
 
 <style lang="scss" scoped></style>

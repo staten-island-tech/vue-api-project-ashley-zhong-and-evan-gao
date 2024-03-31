@@ -113,8 +113,6 @@ export default {
     //     this.getCause();
     // }
 }
-
-
 </script>
 
 <style lang="scss" scoped></style>
