@@ -16,7 +16,6 @@ const props = defineProps({
 const causePath = computed(() => {
   return `/DeathData/${props.cause}`
 })
-import DeathsData from '@/views/DeathData.vue'
 </script>
 
 <style lang="scss" scoped>
