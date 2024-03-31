@@ -1,23 +1,6 @@
 <template>
   <div class="PieChartContainer">
     <h1>Pie Chart</h1>
-    <!-- <Pie
-      :chart-data="
-        (chartData = {
-          labels: ['Men', 'Women'],
-          datasets: [
-            {
-              data: [this.menProp, this.womenProp],
-              backgroundColor: ['#f9c200', '#3498db']
-            }
-          ]
-        })
-      "
-      :chart-options="{ responsive: true, maintainAspectRatio: false }"
-      :chart-id="chartId"
-      :width="width"
-      :height="height"
-    /> -->
 
     <Pie 
     :options="chartOptions"
@@ -38,13 +21,12 @@ import {
 } from 'chart.js'
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
-
 export default {
   name: 'PieChartCard',
   components: {Pie}, 
   // extends: Pie,
   data() {
-      return { chartConfig, 
+      return { 
         chartData: {
           labels: [ 'Men', 'Women'],
           datasets: [ { 
@@ -65,20 +47,6 @@ export default {
     womenProp: {
       type: Number,
     },
-    // chartId: {
-    //   type: String,
-    //   default: 'pie-chart'
-    // },
-
-    // width: {
-    //   type: Number,
-    //   default: 400
-    // },
-
-    // height: {
-    //   type: Number,
-    //   default: 400
-    // }
   }
 }
 </script>
