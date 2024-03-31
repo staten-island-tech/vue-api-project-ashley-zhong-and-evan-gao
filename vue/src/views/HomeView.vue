@@ -4,12 +4,7 @@
     <h3>Find Info on the Statistics of Causes of Deaths based on Race and Gender</h3>
     <input type="text" v-model="searchedCause" placeholder="Search..." @keyup.enter="findDeath" />
     <div>Finding Results for: {{ searchedCause }}</div>
-    <MainCard
-      v-for="(cause, index) in filteredUniqueLeadingCauses"
-      :key="index"
-      :id="index"
-      :cause="cause"
-    />
+    <MainCard v-for="(cause, index) in filteredUniqueLeadingCauses" :key="index" :cause="cause" />
   </div>
 </template>
 
@@ -19,8 +14,6 @@ import { ref, onMounted, computed } from 'vue'
 
 const deathData = ref(null)
 const searchedCause = ref('')
-
-// script setup makes composition api and script makes options https://www.youtube.com/watch?v=qRPSOXA1Fhw
 
 const API = 'https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014'
 
@@ -40,18 +33,9 @@ async function fetchData(link) {
 }
 
 const uniqueLeadingCauses = computed(() => {
-  // takes all the items with same leading_causes
+  // takes all the items with same leading_causes and eliminates any extras for searching
   if (deathData.value) {
-    const leadingCauseMap = new Map()
-    deathData.value.forEach((item) => {
-      if (leadingCauseMap.has(item.leading_cause)) {
-        leadingCauseMap.set(item.leading_cause, leadingCauseMap.get(item.leading_cause) + 1)
-      } else {
-        leadingCauseMap.set(item.leading_cause, 1)
-      }
-    })
-    const uniqueLeadingCausesArray = Array.from(leadingCauseMap.keys())
-    return uniqueLeadingCausesArray
+    return [...new Set(deathData.value.map((item) => item.leading_cause))]
   }
   return ["didn't work properly"]
 })

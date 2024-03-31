@@ -1,12 +1,13 @@
 <template>
   <div>
-    <!-- <PieChart v-if="loaded" :menProp="men" :womenProp="women" /> -->
+    <div class="men">Number of Men: {{ men }}</div>
+    <div class="women">Number of Women: {{ women }}</div>
+    <PieChartCard :menProp="men" :womenProp="women"></PieChartCard>
   </div>
 </template>
 
 <script>
-import PieChart from '@/components/PieChartCard.vue'
-import { Pie } from 'vue-chartjs'
+import PieChartCard from '@/components/PieChartCard.vue'
 import {
   Chart as ChartJS,
   Title,
@@ -20,8 +21,8 @@ import {
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
-  name: 'PieChart',
-  components: { PieChart },
+  name: 'AllCharts',
+  components: { PieChartCard },
 
   data() {
     return {
