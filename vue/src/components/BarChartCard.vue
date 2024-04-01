@@ -1,7 +1,7 @@
 <template>
   <div class="BarChartContainer"></div>
-  <Bar :options="chartOptions" :data="chartData" />
   <h1>Bar Chart</h1>
+  <Bar :options="chartOptions" :data="chartData" />
 </template>
 
 <script>
