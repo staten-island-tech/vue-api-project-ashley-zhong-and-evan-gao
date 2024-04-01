@@ -1,7 +1,6 @@
 <template>
+  <h1>{{ causeName }}</h1>
   <div>
-    <div class="men">Number of Men: {{ men }}</div>
-    <div class="women">Number of Women: {{ women }}</div>
     <PieChartCard :menProp="men" :womenProp="women"></PieChartCard>
     <BarChartCard 
     :Black_NonHispanicProp="Black_NonHispanic"
@@ -83,6 +82,7 @@ export default {
             this.Unknown += parseInt(item.deaths)
           }
         })
+        this.causeName = this.data[0].leading_cause
       } catch (error) {
         console.log(error)
       }
@@ -93,4 +93,15 @@ export default {
 // https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014&leading_cause=Accidents%20Except%20Drug%20Posioning%20(V01-X39,%20X43,%20X45-X59,%20Y85-Y86)
 </script>
 
-<style scoped></style>
+<style scoped>
+h1{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+div{
+  width: 40rem;
+  /* display: grid;
+  justify-content: center;
+  align-items: center; */
+}
+</style>

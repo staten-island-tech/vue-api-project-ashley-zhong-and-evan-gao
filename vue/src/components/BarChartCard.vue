@@ -1,7 +1,9 @@
 <template>
-  <div class="BarChartContainer"></div>
-  <h1>Bar Chart</h1>
+  <div id="BarChartContainer">
+    <h2>Deaths by Race/Ethnicity </h2>
   <Bar :options="chartOptions" :data="chartData" />
+  </div>
+
 </template>
 
 <script>
@@ -60,6 +62,7 @@ export default {
   ],
   datasets: [
     {
+      label: 'Deaths',
       backgroundColor: '#f87979',
       data: [this.Black_NonHispanicProp, this.White_NonHispanicProp, this.UnknownProp, this.HispanicProp, this.Asian_PacificIslanderProp, this.OtherProp]
     }
@@ -79,4 +82,11 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#BarChartContainer{
+  margin-top: 3rem;
+}
+h2{
+  text-align: center;
+}
+</style>
