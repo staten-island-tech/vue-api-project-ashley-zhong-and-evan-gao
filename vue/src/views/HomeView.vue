@@ -4,13 +4,20 @@
     <h3>Find Info on the Statistics of Causes of Deaths based on Race and Gender</h3>
     <input type="text" v-model="searchedCause" placeholder="Search..." @keyup.enter="findDeath" />
     <div>Finding Results for: {{ searchedCause }}</div>
-    <MainCard v-for="(cause, index) in filteredUniqueLeadingCauses" :key="index" :cause="cause" />
+    <MainCard
+      v-for="(cause, index, descriptionKey) in filteredUniqueLeadingCauses"
+      :key="index"
+      :cause="cause"
+      :descriptionKey="descriptionKey"
+      :description="descriptionArr[descriptionKey]"
+    />
   </div>
 </template>
 
 <script setup>
 import MainCard from '@/components/MainCard.vue'
 import { ref, onMounted, computed } from 'vue'
+import { descriptionArr } from '@/stores/descriptionArr'
 
 const deathData = ref(null)
 const searchedCause = ref('')
