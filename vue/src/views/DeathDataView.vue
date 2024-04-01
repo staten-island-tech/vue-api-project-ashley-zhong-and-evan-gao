@@ -1,9 +1,6 @@
 <template>
+  <h1>{{ causeName }}</h1>
   <div>
-    <h1 class="title">{{ causeName }}</h1>
-    <div class="description">{{ description }}</div>
-    <div class="men">Number of Men: {{ men }}</div>
-    <div class="women">Number of Women: {{ women }}</div>
     <PieChartCard :menProp="men" :womenProp="women"></PieChartCard>
     <BarChartCard
       :Black_NonHispanicProp="Black_NonHispanic"
@@ -95,6 +92,7 @@ export default {
             this.Unknown += parseInt(item.deaths)
           }
         })
+        this.causeName = this.data[0].leading_cause
       } catch (error) {
         console.log(error)
       }
@@ -103,4 +101,15 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+div {
+  width: 40rem;
+  /* display: grid;
+  justify-content: center;
+  align-items: center; */
+}
+</style>
