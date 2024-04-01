@@ -50,5 +50,6 @@ export default {
 <style scoped>
 h2 {
   text-align: center;
+  color: var(--pink-gray);
 }
 </style>

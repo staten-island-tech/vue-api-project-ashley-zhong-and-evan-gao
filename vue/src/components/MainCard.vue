@@ -21,6 +21,7 @@ const causePath = computed(() => {
 <style scoped>
 #card {
   margin-bottom: 2rem;
-  font-size: 1.5rem;
+  font-size: 3rem;
+  width: 600px;
 }
 </style>

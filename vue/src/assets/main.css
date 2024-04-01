@@ -9,16 +9,16 @@
 
 h2 {
   font-size: var(h2);
-  color: var(--blue-gray);
+  color: var(--pink-gray);
 }
 .subtitle {
   font-size: 2rem;
-  color: var(---blue-gray);
+  color: var(---pink-gray);
 }
 
 .title {
   font-size: 3rem;
-  color: var(--blue-gray);
+  color: var(--pink-gray);
 }
 
 a {
@@ -39,6 +39,6 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
   }
 }

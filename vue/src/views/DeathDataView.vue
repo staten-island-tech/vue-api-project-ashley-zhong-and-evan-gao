@@ -110,9 +110,6 @@ h1 {
 }
 div {
   width: 40rem;
-  /* display: grid;
-  justify-content: center;
-  align-items: center; */
 }
 .charts {
   display: flex;

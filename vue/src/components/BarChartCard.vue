@@ -91,5 +91,6 @@ export default {
 }
 h2 {
   text-align: center;
+  color: var(--pink-gray);
 }
 </style>

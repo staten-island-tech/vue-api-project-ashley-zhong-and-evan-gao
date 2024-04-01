@@ -1,5 +1,5 @@
 <template>
-  <div class="pie-chart">All Deaths</div>
+  <div class="pie-title">All Deaths</div>
   <div>
     <PieChartTotal
       :AccidentsExceptDrugPosioningProp="AccidentsExceptDrugPosioning"
@@ -156,7 +156,7 @@ export default {
 </script>
 
 <style scoped>
-.pie-chart {
+.pie-title {
   font-size: var(--h2);
   color: var(--pink-gray);
   text-align: center;

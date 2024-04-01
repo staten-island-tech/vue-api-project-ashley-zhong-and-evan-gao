@@ -18,13 +18,12 @@ import { RouterLink, RouterView } from 'vue-router'
 <style scoped>
 header {
   background-color: var(--mightnight-blue);
-  padding: 2rem;
 }
 
 .wrapper {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 nav {
@@ -36,8 +35,8 @@ nav {
 nav a {
   text-decoration: none;
   color: var(--pink-gray);
-  font-size: 1.5rem;
-  padding: 3rem;
+  font-size: 2rem;
+  padding: 2rem;
   transition: color 0.4s;
 }
 

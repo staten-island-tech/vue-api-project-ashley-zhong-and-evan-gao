@@ -1,10 +1,11 @@
 <template>
   <div class="home-page">
     <h1 class="title">Causes of Death in 2014</h1>
-    <h3 class="subtitle">
-      Find Info on the Statistics of Causes of Deaths based on Race and Gender
-    </h3>
+    <label class="subtitle" for="search-input">
+      Find Info on the Statistics of Causes of Deaths based on Race and Gender:</label
+    >
     <input
+      id="search-input"
       class="search-bar"
       type="text"
       v-model="searchedCause"
@@ -64,20 +65,39 @@ onMounted(() => {
 
 <style scoped>
 .home-page {
-  margin: 5em;
+  margin: 0em;
+  display: flex;
+  flex-wrap: wrap;
 }
 .title {
-  font-size: 2.5rem; /* Adjust font size for h1 */
+  font-size: 2.5rem;
+  color: var(--pink-gray);
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  margin: 2em;
 }
 
 .subtitle {
-  font-size: 1.5rem; /* Adjust font size for h3 */
+  font-size: 1.5rem;
+  color: var(--pink-gray);
+  justify-content: center;
+  width: 50%;
+  height: auto;
+  text-align: center;
 }
 .search-bar {
   font-size: 2rem;
+  color: var(--pink-gray);
+  justify-content: center;
+  width: 50%;
+  height: auto;
 }
 
 .results {
   font-size: 2rem;
+  color: var(--pink-gray);
+  width: 100%;
+  margin: 2em;
 }
 </style>
