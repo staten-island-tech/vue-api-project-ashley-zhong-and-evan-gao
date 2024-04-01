@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/byRacePieChart">Leading Cause of Death By Race</RouterLink>
+        <RouterLink to="/LeadingCauses">Leading Causes of Death</RouterLink>
       </nav>
     </div>
   </header>
@@ -17,13 +17,14 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 header {
-  background-color: var(--dark-blue);
-  padding: 1rem 0;
+  background-color: var(--mightnight-blue);
+  padding: 2rem;
 }
 
 .wrapper {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 2rem;
 }
 
 nav {
@@ -34,14 +35,14 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--orange);
+  color: var(--pink-gray);
   font-size: 1.5rem;
-  padding: 0 1rem;
+  padding: 3rem;
   transition: color 0.4s;
 }
 
 nav a:hover {
-  color: var(--normal-red);
+  color: var(--ivory);
 }
 
 @media (max-width: 768px) {

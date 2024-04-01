@@ -6,7 +6,7 @@ body,
   font-family: 'Roboto', sans-serif;
   font-size: 62.5%;
   box-sizing: border-box;
-  background-color: var(--dark-blue);
+  background-color: var(--midnight-blue);
 }
 
 :root {
@@ -27,6 +27,11 @@ body,
   --dark-green: #0e5c45;
   --dark-purple: #3e1f47;
   --dark-gray: #333333;
+  --midnight-blue: #22223b;
+  --blue-gray: #4a4e69;
+  --purple-gray: #9a8c98;
+  --ivory: #f2e9e4;
+  --pink-gray: #c9ada7;
 }
 
 /* color palette from <https://github.com/vuejs/theme> */

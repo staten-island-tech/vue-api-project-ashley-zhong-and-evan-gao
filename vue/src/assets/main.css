@@ -9,25 +9,27 @@
 
 h2 {
   font-size: var(h2);
+  color: var(--blue-gray);
 }
 .subtitle {
   font-size: 2rem;
+  color: var(---blue-gray);
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 3rem;
+  color: var(--blue-gray);
 }
 
 a {
-  color: var(--orange);
+  color: var(--pink-gray);
   transition: 0.4s;
   padding: 3px;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: var(--normal-red);
-    color: white;
+    color: var(--ivory);
   }
 }
 

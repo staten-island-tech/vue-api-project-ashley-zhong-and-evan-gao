@@ -117,11 +117,23 @@ div {
 .charts {
   display: flex;
   justify-content: space-around;
+  width: 100%;
 }
 .pie {
   margin: 2rem;
+  width: 50%;
 }
 .bar {
   margin: 2rem;
+  width: 100%;
+}
+.description {
+  display: flex;
+  text-wrap: wrap;
+  width: 100%;
+  padding: 2rem;
+  font-size: var(--h3);
+  text-align: center;
+  color: var(--pink-gray);
 }
 </style>
