@@ -1,26 +1,38 @@
 <template>
   <div>
+    <h1 class="title">{{ causeName }}</h1>
+    <div class="description">{{ description }}</div>
     <div class="men">Number of Men: {{ men }}</div>
     <div class="women">Number of Women: {{ women }}</div>
     <PieChartCard :menProp="men" :womenProp="women"></PieChartCard>
-    <BarChartCard 
-    :Black_NonHispanicProp="Black_NonHispanic"
-    :White_NonHispanicProp="White_NonHispanic"
-    :HispanicProp="Hispanic"
-    :Asian_PacificIslanderProp="Asian_PacificIslander"
-    :OtherProp="Other"
-    :UnknownProp="Unknown"></BarChartCard>
+    <BarChartCard
+      :Black_NonHispanicProp="Black_NonHispanic"
+      :White_NonHispanicProp="White_NonHispanic"
+      :HispanicProp="Hispanic"
+      :Asian_PacificIslanderProp="Asian_PacificIslander"
+      :OtherProp="Other"
+      :UnknownProp="Unknown"
+    ></BarChartCard>
   </div>
 </template>
 
 <script>
 import PieChartCard from '@/components/PieChartCard.vue'
 import BarChartCard from '@/components/BarChartCard.vue'
+import { descriptionArr } from '@/stores/descriptionArr'
 
 export default {
   name: 'AllCharts',
-  components: { PieChartCard , BarChartCard},
-
+  components: { PieChartCard, BarChartCard },
+  computed: {
+    causeName() {
+      return this.$route.params.id
+    },
+    description() {
+      const matchingDescription = descriptionArr.find((item) => item.name === this.causeName)
+      return matchingDescription ? matchingDescription.description : ''
+    }
+  },
   data() {
     return {
       loaded: false,
@@ -28,10 +40,10 @@ export default {
       women: 0,
       Black_NonHispanic: 0,
       White_NonHispanic: 0,
-      Hispanic:0, 
-      Asian_PacificIslander: 0, 
-      Other:0, 
-      Unknown: 0, 
+      Hispanic: 0,
+      Asian_PacificIslander: 0,
+      Other: 0,
+      Unknown: 0
     }
   },
   mounted: function () {
@@ -63,23 +75,23 @@ export default {
             }
           }
         })
-        this.data.forEach((item)=> {
-          if(item.race_ethnicity === "Black Non-Hispanic"){
+        this.data.forEach((item) => {
+          if (item.race_ethnicity === 'Black Non-Hispanic') {
             this.Black_NonHispanic += parseInt(item.deaths)
           }
-          if(item.race_ethnicity === "White Non-Hispanic"){
+          if (item.race_ethnicity === 'White Non-Hispanic') {
             this.White_NonHispanic += parseInt(item.deaths)
           }
-          if(item.race_ethnicity === "Hispanic"){
+          if (item.race_ethnicity === 'Hispanic') {
             this.Hispanic += parseInt(item.deaths)
           }
-          if(item.race_ethnicity === "Asian and Pacific Islander"){
+          if (item.race_ethnicity === 'Asian and Pacific Islander') {
             this.Asian_PacificIslander += parseInt(item.deaths)
           }
-          if(item.race_ethnicity === "Other Race/ Ethnicity"){
+          if (item.race_ethnicity === 'Other Race/ Ethnicity') {
             this.Other += parseInt(item.deaths)
           }
-          if(item.race_ethnicity === "Not Stated/Unknown"){
+          if (item.race_ethnicity === 'Not Stated/Unknown') {
             this.Unknown += parseInt(item.deaths)
           }
         })
@@ -89,8 +101,6 @@ export default {
     }
   }
 }
-
-// https://data.cityofnewyork.us/resource/jb7j-dtam.json?year=2014&leading_cause=Accidents%20Except%20Drug%20Posioning%20(V01-X39,%20X43,%20X45-X59,%20Y85-Y86)
 </script>
 
 <style scoped></style>
