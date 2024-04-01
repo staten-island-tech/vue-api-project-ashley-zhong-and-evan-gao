@@ -10,16 +10,8 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/byRaceBarChart',
+      path: '/byRacePieChart',
       name: 'Leading Cause of Death by Race',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/BarChartView.vue')
-    },
-    {
-      path: '/byGenderPieChart',
-      name: 'Leading Cause of Death by Gender',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.

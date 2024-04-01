@@ -1,9 +1,17 @@
 <template>
   <div class="home-page">
-    <h1>Causes of Death in 2014</h1>
-    <h3>Find Info on the Statistics of Causes of Deaths based on Race and Gender</h3>
-    <input type="text" v-model="searchedCause" placeholder="Search..." @keyup.enter="findDeath" />
-    <div>Finding Results for: {{ searchedCause }}</div>
+    <h1 class="title">Causes of Death in 2014</h1>
+    <h3 class="subtitle">
+      Find Info on the Statistics of Causes of Deaths based on Race and Gender
+    </h3>
+    <input
+      class="search-bar"
+      type="text"
+      v-model="searchedCause"
+      placeholder="Search..."
+      @keyup.enter="findDeath"
+    />
+    <div class="results">Finding Results for: {{ searchedCause }}</div>
     <MainCard v-for="(cause, index) in filteredUniqueLeadingCauses" :key="index" :cause="cause" />
   </div>
 </template>
@@ -54,4 +62,22 @@ onMounted(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.home-page {
+  margin: 5em;
+}
+.title {
+  font-size: 2.5rem; /* Adjust font size for h1 */
+}
+
+.subtitle {
+  font-size: 1.5rem; /* Adjust font size for h3 */
+}
+.search-bar {
+  font-size: 2rem;
+}
+
+.results {
+  font-size: 2rem;
+}
+</style>

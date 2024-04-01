@@ -2,6 +2,6 @@
 
 Children Components PieChartCard.vue and BarChartCard.Vue are for DeathDataView.vue Parent Component
 
-Views BarChartView.vue and PieChartView.vue are different routable charts on the HomeView.vue Parent Component
+Views PieChartView.vue is a routable chart on the HomeView.vue Parent Component
 
 Children Component Maincard.vue is for the HomeView.vue Parent Component

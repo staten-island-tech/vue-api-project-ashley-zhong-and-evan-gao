@@ -20,7 +20,7 @@ const causePath = computed(() => {
 
 <style scoped>
 #card {
-  background-color: aqua;
   margin-bottom: 2rem;
+  font-size: 1.5rem;
 }
 </style>

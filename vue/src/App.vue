@@ -4,14 +4,10 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/byRaceBarChart">Leading Cause of Death By Race</RouterLink>
-        <RouterLink to="/byGenderPieChart">Leading Cause of Death By Gender</RouterLink>
+        <RouterLink to="/byRacePieChart">Leading Cause of Death By Race</RouterLink>
       </nav>
     </div>
   </header>
@@ -21,64 +17,40 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 header {
-  /* line-height: 1.5; */
-  max-height: 100vh;
+  background-color: var(--dark-blue);
+  padding: 1rem 0;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 nav {
-  width: 100%;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 nav a {
-  display: inline-block;
+  text-decoration: none;
+  color: var(--orange);
+  font-size: 1.5rem;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  transition: color 0.4s;
 }
 
-nav a:first-of-type {
-  border: 0;
+nav a:hover {
+  color: var(--normal-red);
 }
 
-@media (min-width: 1024px) {
-  header {
-    /* display: flex;
-    place-items: center; */
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    /* display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap; */
-  }
-
+@media (max-width: 768px) {
   nav {
-    /* text-align: left;
-    margin-left: -1rem; */
-    /* font-size: 1rem; */
+    flex-direction: column;
+  }
 
+  nav a {
     padding: 1rem 0;
-    /* margin-top: 1rem; */
   }
 }
 </style>
