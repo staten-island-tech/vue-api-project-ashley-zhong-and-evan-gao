@@ -7,6 +7,17 @@
   font-weight: normal;
 }
 
+h2 {
+  font-size: var(h2);
+}
+.subtitle {
+  font-size: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+}
+
 a {
   color: var(--orange);
   transition: 0.4s;

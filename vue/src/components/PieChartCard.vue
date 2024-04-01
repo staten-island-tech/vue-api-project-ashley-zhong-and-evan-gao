@@ -1,6 +1,6 @@
 <template>
   <div class="PieChartContainer">
-    <h2>Deaths by Gender</h2>
+    <h2 class="subtitle">Deaths by Gender</h2>
     <Pie :options="chartOptions" :data="chartData" />
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-h2{
+h2 {
   text-align: center;
 }
 </style>

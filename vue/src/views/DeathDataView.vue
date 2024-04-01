@@ -1,8 +1,10 @@
 <template>
-  <h1>{{ causeName }}</h1>
-  <div>
-    <PieChartCard :menProp="men" :womenProp="women"></PieChartCard>
+  <h1 class="title">{{ causeName }}</h1>
+  <div class="description">{{ description }}</div>
+  <div class="charts">
+    <PieChartCard class="pie" :menProp="men" :womenProp="women"></PieChartCard>
     <BarChartCard
+      class="bar"
       :Black_NonHispanicProp="Black_NonHispanic"
       :White_NonHispanicProp="White_NonHispanic"
       :HispanicProp="Hispanic"
@@ -111,5 +113,15 @@ div {
   /* display: grid;
   justify-content: center;
   align-items: center; */
+}
+.charts {
+  display: flex;
+  justify-content: space-around;
+}
+.pie {
+  margin: 2rem;
+}
+.bar {
+  margin: 2rem;
 }
 </style>

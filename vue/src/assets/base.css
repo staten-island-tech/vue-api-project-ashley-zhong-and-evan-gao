@@ -29,9 +29,6 @@ body,
   --dark-gray: #333333;
 }
 
-h2 {
-  font-size: var(h2);
-}
 /* color palette from <https://github.com/vuejs/theme> */
 /* :root {
   --vt-c-white: #ffffff;
