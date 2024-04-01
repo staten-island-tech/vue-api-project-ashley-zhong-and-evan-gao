@@ -5,30 +5,32 @@
 </template>
 
 <script>
+import PieChartTotal from '@/components/PieChartTotal.vue'
+
 export default {
   name: 'AllPieChart',
-  components: { },
+  components: {Pie},
 
   data() {
     return {
       AccidentsExceptDrugPosioning: 0, 
       NephritisNephroticSyndromeNephrisis: 0, 
-      CerebrovascularDisease: 0, 
-      ChronicLowerRespiratory: 0, 
-      AllOther: 0,   
-      Alzheimer:0, 
-      MentalBehavioral: 0,
-      EssentialHypertension: 0,
-      Influenza: 0,
-      DiabetesMellitus: 0, 
-      CertainConditions: 0, 
-      MalignantNeoplasms: 0, 
-      SelfHarm: 0, 
-      HIV: 0, 
-      CongenitalMalformations: 0, 
-      Assault: 0, 
-      Septicemia: 0,
-      ChronicLiver: 0,  
+      // CerebrovascularDisease: 0, 
+      // ChronicLowerRespiratory: 0, 
+      // AllOther: 0,   
+      // Alzheimer:0, 
+      // MentalBehavioral: 0,
+      // EssentialHypertension: 0,
+      // Influenza: 0,
+      // DiabetesMellitus: 0, 
+      // CertainConditions: 0, 
+      // MalignantNeoplasms: 0, 
+      // SelfHarm: 0, 
+      // HIV: 0, 
+      // CongenitalMalformations: 0, 
+      // Assault: 0, 
+      // Septicemia: 0,
+      // ChronicLiver: 0,  
 
 
     }
@@ -54,6 +56,9 @@ export default {
         this.data.forEach((item)=> {
           if(item.leading_cause === "Accidents Except Drug Posioning (V01-X39, X43, X45-X59, Y85-Y86)"){
             this.AccidentsExceptDrugPosioning += parseInt(item.deaths)
+          }
+          if(item.leading_cause === "Nephritis, Nephrotic Syndrome and Nephrisis (N00-N07, N17-N19, N25-N27)"){
+            this.NephritisNephroticSyndromeNephrisis += parseInt(item.deaths)
           }
         })
       } catch (error) {
