@@ -97,6 +97,7 @@ export default {
           'All Other Causes',
           `Alzheimer's Disease`,
           'Mental and Behavioral Disorders',
+          `Essential Hypertension and Renal Diseases`,
           'Influenza and Pneumonia',
           'Diabetes Mellitus',
           'Perinatal Period',
@@ -149,7 +150,6 @@ export default {
               this.AssaultProp,
               this.SepticemiaProp,
               this.ChronicLiverProp,
-              this.NephritisNephroticSyndromeNephrisisProp
             ]
           }
         ],
