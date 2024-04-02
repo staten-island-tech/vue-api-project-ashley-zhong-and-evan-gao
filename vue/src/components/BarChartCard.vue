@@ -78,7 +78,39 @@ export default {
   data() {
     return {
       chartOptions: {
-        responsive: true
+        responsive: true,
+        plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        },
+        label: {
+          color: 'white'
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: 'white'
+          },
+          grid: {
+            color: 'white'
+          }
+
+        },
+        
+        y: {
+          ticks: {
+            color: 'white'
+          },
+          grid: {
+            color: 'white'
+          }
+
+        }
+      }
+
       }
     }
   }

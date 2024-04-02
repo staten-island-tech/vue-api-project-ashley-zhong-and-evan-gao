@@ -30,9 +30,9 @@ export default {
         labels: ['Men', 'Women'],
         datasets: [
           {
-            backgroundColor: ['#5a5e9a', '#777aaf'],
+            backgroundColor: ['#5a5e9a', '#6b70d1'],
             data: [this.menProp, this.womenProp]
-          }
+          },
         ]
       }
     }
@@ -40,7 +40,17 @@ export default {
   data() {
     return {
       chartOptions: {
-        responsive: true
+        responsive: true,
+        plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        },
+        label: {
+          color: 'white'
+        }
+      }
       }
     }
   }

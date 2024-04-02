@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <h1 class="title">Causes of Death in 2014</h1>
+    <h1 class="title">Data for Leading Causes of Death in 2014</h1>
     <label class="subtitle" for="search-input">
       Find Info on the Statistics of Causes of Deaths based on Race and Gender:</label
     >
@@ -64,13 +64,15 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+
 .home-page {
   margin: 0em;
   display: flex;
   flex-wrap: wrap;
 }
 .title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: var(--pink-gray);
   text-align: center;
   justify-content: center;

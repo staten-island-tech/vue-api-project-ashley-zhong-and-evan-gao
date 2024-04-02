@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="TotalChartContainer">
     <Pie :options="chartOptions" :data="chartData" />
   </div>
 </template>
@@ -90,7 +90,7 @@ export default {
     chartData() {
       return {
         labels: [
-          'Accidents Except Drug Posioning',
+          'Accidents Except Drug Poisoning',
           'Nephritis, Nephrotic Syndrome and Nephrisis',
           'Cerebrovascular Disease',
           'Chronic Lower Respiratory Diseases',
@@ -152,7 +152,7 @@ export default {
               this.NephritisNephroticSyndromeNephrisisProp
             ]
           }
-        ]
+        ],
       }
     }
   },
@@ -160,11 +160,25 @@ export default {
     return {
       chartOptions: {
         responsive: true,
-        maintainAspectRatio: true
+        maintainAspectRatio: true,
+        plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        },
+        label: {
+          color: 'white'
+        }
+      }
       }
     }
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#TotalChartContainer{
+  width: 80rem;
+}
+</style>

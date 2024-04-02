@@ -1,5 +1,5 @@
 <template>
-  <div class="pie-title">All Deaths</div>
+  <div class="pie-title">Leading Causes of Death</div>
   <div>
     <PieChartTotal
       :AccidentsExceptDrugPosioningProp="AccidentsExceptDrugPosioning"
