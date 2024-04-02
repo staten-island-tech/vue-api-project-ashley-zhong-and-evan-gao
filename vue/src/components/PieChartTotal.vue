@@ -152,7 +152,7 @@ export default {
               this.ChronicLiverProp,
             ]
           }
-        ],
+        ]
       }
     }
   },
@@ -162,15 +162,15 @@ export default {
         responsive: true,
         maintainAspectRatio: true,
         plugins: {
-        legend: {
-          labels: {
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          },
+          label: {
             color: 'white'
           }
-        },
-        label: {
-          color: 'white'
         }
-      }
       }
     }
   }
@@ -178,7 +178,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#TotalChartContainer{
+#TotalChartContainer {
   width: 80rem;
 }
 </style>
