@@ -13,8 +13,9 @@
   "dependencies": {
     "chart.js": "^4.4.2",
     "pinia": "^2.1.7",
+    "primevue": "^3.51.0",
     "vue": "^3.4.15",
-    "vue-chartjs": "^5.3.0",
+    "vue-chartjs": "^5.3.1",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
