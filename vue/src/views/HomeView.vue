@@ -1,18 +1,19 @@
 <template>
   <div class="home-page">
-    <h1 class="title">Data for Leading Causes of Death in 2014</h1>
-    <label class="subtitle" for="search-input">
-      Find Info on the Statistics of Causes of Deaths based on Race and Gender:</label
-    >
-    <input
-      id="search-input"
-      class="search-bar"
-      type="text"
-      v-model="searchedCause"
-      placeholder="Search..."
-      @keyup.enter="findDeath"
-    />
-    <div class="results">Finding Results for: {{ searchedCause }}</div>
+    <h1 class="title">Data for Leading Causes of Death in 2014 (Race and Gender)</h1>
+    <div class="search-info">
+      <label class="search-title" for="search-input">
+        Find Info and Statistics For {{ searchedCause }}:</label
+      >
+      <input
+        id="search-input"
+        class="search-bar"
+        type="text"
+        v-model="searchedCause"
+        placeholder="Search..."
+        @keyup.enter="findDeath"
+      />
+    </div>
     <MainCard v-for="(cause, index) in filteredUniqueLeadingCauses" :key="index" :cause="cause" />
   </div>
 </template>
@@ -64,8 +65,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
-
 .home-page {
   margin: 0em;
   display: flex;
@@ -77,16 +76,25 @@ onMounted(() => {
   text-align: center;
   justify-content: center;
   width: 100%;
-  margin: 2em;
+  margin: 1.5em;
 }
 
-.subtitle {
-  font-size: 1.5rem;
+.search-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.search-title {
+  font-size: 2rem;
   color: var(--pink-gray);
   justify-content: center;
-  width: 50%;
+  width: 100%;
+  padding: 1em;
   height: auto;
   text-align: center;
+  font-weight: bold;
 }
 .search-bar {
   font-size: 2rem;
@@ -94,12 +102,8 @@ onMounted(() => {
   justify-content: center;
   width: 50%;
   height: auto;
-}
-
-.results {
-  font-size: 2rem;
-  color: var(--pink-gray);
-  width: 100%;
-  margin: 2em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  text-align: center;
 }
 </style>
