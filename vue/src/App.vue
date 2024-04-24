@@ -9,8 +9,8 @@ AOS.init()
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/" data-aos="slide-right" data-aos-duration="4000">Search</RouterLink>
-        <RouterLink to="/LeadingCauses" data-aos="slide-left" data-aos-duration="4000"
+        <RouterLink to="/" data-aos="slide-right" data-aos-duration="1000">Search</RouterLink>
+        <RouterLink to="/LeadingCauses" data-aos="slide-left" data-aos-duration="1000"
           >Leading Causes of Death</RouterLink
         >
       </nav>

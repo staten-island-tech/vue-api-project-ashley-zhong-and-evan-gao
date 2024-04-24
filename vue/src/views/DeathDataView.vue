@@ -1,6 +1,6 @@
 <template>
-  <h1 class="title">{{ causeName }}</h1>
-  <div class="description">{{ description }}</div>
+  <h1 class="title" data-aos="zoom-in">{{ causeName }}</h1>
+  <div class="description" data-aos="zoom-in">{{ description }}</div>
   <div class="charts">
     <PieChartCard class="pie" :menProp="men" :womenProp="women"></PieChartCard>
     <BarChartCard
@@ -19,6 +19,9 @@
 import PieChartCard from '@/components/PieChartCard.vue'
 import BarChartCard from '@/components/BarChartCard.vue'
 import { descriptionArr } from '@/stores/descriptionArr'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+AOS.init()
 
 export default {
   name: 'AllCharts',

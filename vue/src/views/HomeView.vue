@@ -1,6 +1,11 @@
 <template>
   <div class="home-page">
-    <h1 class="title" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+    <h1
+      class="title"
+      data-aos="fade-up"
+      data-aos-anchor-placement="bottom-bottom"
+      data-aos-duration="1000"
+    >
       Data for Leading Causes of Death in 2014 (Race and Gender)
     </h1>
     <div class="search-info">
@@ -9,6 +14,7 @@
         for="search-input"
         data-aos="fade-up"
         data-aos-anchor-placement="bottom-bottom"
+        data-aos-duration="1000"
       >
         Find Info and Statistics For {{ searchedCause }}:</label
       >
@@ -21,9 +27,12 @@
         @keyup.enter="findDeath"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
+        data-aos-duration="1000"
       />
     </div>
-    <MainCard v-for="(cause, index) in filteredUniqueLeadingCauses" :key="index" :cause="cause" />
+    <div class="all-cards">
+      <MainCard v-for="(cause, index) in filteredUniqueLeadingCauses" :key="index" :cause="cause" />
+    </div>
   </div>
 </template>
 
@@ -88,7 +97,7 @@ onMounted(() => {
   text-align: center;
   justify-content: center;
   width: 100%;
-  margin: 1.5em;
+  margin: 1em;
 }
 
 .search-info {
@@ -99,7 +108,7 @@ onMounted(() => {
   text-align: center;
 }
 .search-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--pink-gray);
   justify-content: center;
   width: 100%;
@@ -117,5 +126,11 @@ onMounted(() => {
   margin: 0 auto;
   margin-bottom: 2em;
   text-align: center;
+}
+.all-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 7rem;
 }
 </style>
