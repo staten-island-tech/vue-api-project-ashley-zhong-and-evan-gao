@@ -1,8 +1,15 @@
 <template>
   <div class="home-page">
-    <h1 class="title">Data for Leading Causes of Death in 2014 (Race and Gender)</h1>
+    <h1 class="title" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+      Data for Leading Causes of Death in 2014 (Race and Gender)
+    </h1>
     <div class="search-info">
-      <label class="search-title" for="search-input">
+      <label
+        class="search-title"
+        for="search-input"
+        data-aos="fade-up"
+        data-aos-anchor-placement="bottom-bottom"
+      >
         Find Info and Statistics For {{ searchedCause }}:</label
       >
       <input
@@ -12,6 +19,8 @@
         v-model="searchedCause"
         placeholder="Search..."
         @keyup.enter="findDeath"
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
       />
     </div>
     <MainCard v-for="(cause, index) in filteredUniqueLeadingCauses" :key="index" :cause="cause" />
@@ -21,6 +30,8 @@
 <script setup>
 import MainCard from '@/components/MainCard.vue'
 import { ref, onMounted, computed } from 'vue'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const deathData = ref(null)
 const searchedCause = ref('')
@@ -61,6 +72,7 @@ const filteredUniqueLeadingCauses = computed(() => {
 
 onMounted(() => {
   fetchData(API)
+  AOS.init()
 })
 </script>
 

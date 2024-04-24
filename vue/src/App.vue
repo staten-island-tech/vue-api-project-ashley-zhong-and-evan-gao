@@ -1,13 +1,18 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+AOS.init()
 </script>
 
 <template>
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Search</RouterLink>
-        <RouterLink to="/LeadingCauses">Leading Causes of Death</RouterLink>
+        <RouterLink to="/" data-aos="slide-right" data-aos-duration="4000">Search</RouterLink>
+        <RouterLink to="/LeadingCauses" data-aos="slide-left" data-aos-duration="4000"
+          >Leading Causes of Death</RouterLink
+        >
       </nav>
     </div>
   </header>

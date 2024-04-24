@@ -8,6 +8,9 @@
 <script setup>
 import { computed } from 'vue'
 import { defineProps } from 'vue'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+AOS.init()
 
 const props = defineProps({
   cause: String
